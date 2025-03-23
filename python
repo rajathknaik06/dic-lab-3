@@ -1,0 +1,42 @@
+""" Shruthi is planning her monthly expenses and allocates a certain amount (an integer) to different categories like food, transport, grocery, rent, and entertainment (represented from 1 to 5 respectively). She has the budget allocations for two months, each stored in a dictionary where keys represent categories and values represent the amounts allocated. 
+
+
+
+Shruthi wants to combine these two budgets into one. If a category appears in both months, the total allocation for that category should be the sum of the amounts from both months.
+
+Input format :
+The first line of input consists of an integer n, representing the number of categories in the first month's budget.
+
+The next n pairs of lines represent the first month's budget, where each pair consists of:
+
+An integer representing the category.
+An integer representing the amount allocated to that category.
+The next line consists of an integer m, representing the number of categories in the second month's budget.
+
+The next m pairs of lines represent the second month's budget, where each pair consists of:
+
+An integer representing the category.
+An integer representing the amount allocated to that category.
+Output format :
+The output displays "Merged Budget" followed by a dictionary representing the merged budget, where the keys are the categories and the values are the total amounts allocated."""
+
+n = int(input())
+budget_month1 = {}
+
+for _ in range(n):
+    category = int(input())
+    amount = int(input())
+    budget_month1[category] = amount
+
+m = int(input())
+budget_month2 = {}
+
+for _ in range(m):
+    category = int(input())
+    amount = int(input())
+    if category in budget_month1:
+        budget_month1[category] += amount
+    else:
+        budget_month1[category] = amount
+
+print("Merged Budget", budget_month1)
